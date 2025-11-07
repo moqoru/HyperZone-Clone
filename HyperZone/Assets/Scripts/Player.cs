@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject bulletPrefab;
+    public Transform[] firePoints; // 2개 위치
+
     #region 변수
     [Header("게임 설정")]
     [Tooltip("현재 스테이지의 제한 이동 횟수")]
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
         float fHorizontal = Input.GetAxisRaw("Horizontal");
         float fVertical = Input.GetAxisRaw("Vertical");
 
+
         Vector3 movement = new Vector3(fHorizontal, fVertical, 0f);
 
 
@@ -31,5 +35,28 @@ public class Player : MonoBehaviour
 
         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+
     }
+
+    void Shoot()
+    {
+        foreach (Transform point in firePoints)
+        {
+            Instantiate(bulletPrefab, point.position, point.rotation);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("You Died");
+            Time.timeScale = 0; // 일단 게임 멈추기
+        }
+    }
+
 }

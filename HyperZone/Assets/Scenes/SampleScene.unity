@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &28061265 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 568919112076218626, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+  m_PrefabInstance: {fileID: 2974702985121447585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0.7, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   player: {fileID: 719882121}
-  offset: {x: 0, y: 0, z: -3}
+  offset: {x: 0, y: 1.5, z: -3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +403,58 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &613650788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613650790}
+  - component: {fileID: 613650789}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &613650789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613650788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c736a12b4aff95489cfe1c366852fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemyPrefab: {fileID: 6200027712875147090, guid: 23a5346ad5a661840ac1bfa8929cb105, type: 3}
+  spawnDistance: 50
+  player: {fileID: 719882121}
+  spawnEvents:
+  - time: 3
+    offset: {x: 0, y: 0, z: 10}
+  - time: 5
+    offset: {x: 1, y: 1, z: 10}
+--- !u!4 &613650790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613650788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2931, y: 0.24826, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &719882121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7269506089975010126, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
@@ -452,6 +509,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1014606394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5143004508716004722, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+  m_PrefabInstance: {fileID: 2974702985121447585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2020974274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -687,6 +749,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7687674420690833539, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 665171599141522166, guid: 8831eeaa45219e84f84dad85eca2f624, type: 3}
+    - target: {fileID: 7687674420690833539, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+      propertyPath: firePoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687674420690833539, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+      propertyPath: 'firePoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 28061265}
+    - target: {fileID: 7687674420690833539, guid: c85f006c64bd895489c6e414c34a6503, type: 3}
+      propertyPath: 'firePoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1014606394}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -699,6 +777,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 613650790}
   - {fileID: 2974702985121447585}
   - {fileID: 2020974274}
   - {fileID: 2133010446}
